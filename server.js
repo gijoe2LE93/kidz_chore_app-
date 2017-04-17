@@ -22,7 +22,7 @@ app.use('/chores', choresController);
 // Set the localhost to 3000
 // ---------------------------------
 var port = process.env.port || 3000;
-var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/kidz_app'
+var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/kidz_app';
 
 //----------------------------------
 //Routes
@@ -41,5 +41,5 @@ mongoose.connection.once('open', function (){
 //Listener
 //=======================================
 app.listen(port, function(){
-    console.log('Projet 2 is listening on ' + port);
+    console.log('Project 2 is listening on ' + port);
 });
