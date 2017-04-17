@@ -21,7 +21,7 @@ app.use('/chores', choresController);
 // ---------------------------------
 // Set the localhost to 3000
 // ---------------------------------
-var port = process.env.port || 3000;
+var port = process.env.PORT || 3000;
 var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/kidz_app';
 
 //----------------------------------
