@@ -6,7 +6,11 @@ var Chores = require('../models/chores.js');
 // Create Chores Index Route
 // ---------------------------------
 router.get('/', function(req, res){
-    res.render('chores/index.ejs');
+    Chores.find({}, function(err, foundChores){
+        res.render('chores/index.ejs',{
+            chores : foundChores
+        });
+    });
 });
 
 // ---------------------------------
