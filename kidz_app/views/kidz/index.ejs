@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Here are the available kidz to work</h1>
+            <nav>
+                <h2> Names</h2>
+                <ul>
+                    <% for (var i = 0; i < kidz.length; i++){ %>
+                        <li>
+                            <a href="/kidz/<%=kidz[i]._id%>"><%=kidz[i].name%></a>
+                            <a href="/kidz/<%=kidz[i]._id%>"><%=kidz[i].age%></a>
+                        </li>
+                    <% } %>
+                    <li><a></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <ul>
+                    <li>
+                        <form action="/">
+                            <input class="btn" type="submit" name="home" value="Home">
+                        </form>
+                        <form action="kidz/new">
+                            <input class="btn" type="submit"  value="Add a child">
+                        </form>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <section>
+
+
+        </section>
+    </body>
+</html>

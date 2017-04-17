@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Edit <%=chores.title%>'s Info</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/chores">Chores Index</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Chore Description</h2>
+            <form action="/chores/<%=chores._id%>?_method=PUT" method="post">
+            <input type="text" name="title" value="<%=chores.title%>"/><br>
+            <textarea name="body"><%=chores.body%></textarea><br/>
+            <input type="submit" class="btn" value="Update Chores"/>    
+            </form>
+        </main>
+    </body>
+</html>

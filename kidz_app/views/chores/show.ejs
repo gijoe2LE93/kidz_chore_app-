@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1><%=chores.title%>Chore Descriptions</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href = "/">Home</a>
+                    </li>
+                    <li>
+                        <a href = "/chores">Chores Index</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <form action="/chores/<%=chores._id%>?_method=DELETE" method="post">
+                    <input type="submit" value="Delete Chore"/>
+                </form>
+                <a href ="/chores/<%=chores._id%>/edit"<Edit</a><%=chores.body%>
+            </section>
+        </main>
+    </body>
+</html>

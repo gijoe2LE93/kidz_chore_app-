@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Show Page for <%=kidz.name%></h1>
+            <nav class="tnav">
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/kidz">Kidz Index</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <ul>
+                    <h2><li>Name: <%=kidz.name%></li></h2>
+                    <h2><li>Age: <%=kidz.age%></li></h2>
+                </ul>
+            </section>
+            <a href="/kidz/<%=kidz._id%>/edit">Edit</a>
+            <form action="/kidz/<%=kidz._id%>?_method=DELETE" method="post">
+                <input class="btn" type="submit" value="Delete Kid">
+            </form>
+        </main>
+    </body>
+</html>

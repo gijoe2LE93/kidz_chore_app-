@@ -1,0 +1,36 @@
+
+body{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+ul{
+    list-style: none;
+}
+.tnav{
+    height: 50vh;
+    display: flex;
+    
+}
+.foot{
+    background-color: orange;
+}
+h1{
+    padding-top: 10px 10px 10px 10px;
+    text-align: center;
+    border-style: outset;
+}
+
+.btn {
+    display: inline-flex;
+    background-color: rgb(228, 130, 19);
+    font-size: 20px;
+}
+section{
+    display: block;
+    padding-top: 50px;
+}
+
+input{
+    padding: 10px;
+    margin: 10px;
+}

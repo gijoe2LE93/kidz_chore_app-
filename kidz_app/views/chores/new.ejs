@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+        <h1>Add A Chore</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/chores">Chores Index Page</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form action="/chores" method="post">
+                <input type="text" name="title"/><br>
+                <textarea name="body"></textarea>
+                <input class="btn" type="submit" value="Create Chore">
+            </form>
+        </main>
+    </body>
+</html>

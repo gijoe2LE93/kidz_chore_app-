@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Chores</h1>
+            <nav>
+                <ul>
+                    <% for (var i = 0; i < chores.length; i++){ %>
+                    <li>
+                        <a href = "/chores/<%=chores[i]._id%>"><%=chores[i].title%></a>
+                    </li>
+                <% } %>
+                    <li>
+                        <a href = "/">Home<a/>
+                    </li>
+                    <li>
+                        <a href = "/chores/new">Create a New Chore<a/>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+
+    </body>
+</html>

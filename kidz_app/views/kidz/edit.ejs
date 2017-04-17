@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <h1>Edit Information for <%=kidz.name%></h1>
+        <nav>
+            <ul>
+                <li> <a href = "/">Home<a/>
+                </li>
+                <li> <a href = "/kidz">Kidz Index</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <section>
+                <ul>
+                    <h2><li>Name: <%=kidz.name%></li></h2>
+                    <form action="/kidz/<%=kidz._id%>?_method=PUT" method="POST">
+                        <input type="text" name="name" value="<%=kidz.name%>"/><br>
+                        <input type="submit" value="Update Name"/>
+                    </form>
+                    <h2><li>Age: <%=kidz.age%></li></h2>
+                    <form action="/kidz/<%=kidz._id%>?_method=PUT" method="POST">
+                        <input type="text" name="age" value="<%=kidz.age%>"/><br>
+                        <input type="submit" value="Update Age"/>
+                    </form>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>
