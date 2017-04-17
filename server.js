@@ -21,7 +21,8 @@ app.use('/chores', choresController);
 // ---------------------------------
 // Set the localhost to 3000
 // ---------------------------------
-var port = 3000;
+var port = process.env.port || 3000;
+var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/kidz_app'
 
 //----------------------------------
 //Routes
@@ -32,7 +33,7 @@ app.get('/', function(req, res){
 //=======================================
 //connect to kidz app to mongoose db
 //=======================================
-mongoose.connect('mongodb://localhost:27017/kidz_app');
+mongoose.connect(mongoDBURI);
 mongoose.connection.once('open', function (){
     console.log('kidz_app connected to mongo');
 });
@@ -40,5 +41,5 @@ mongoose.connection.once('open', function (){
 //Listener
 //=======================================
 app.listen(port, function(){
-    console.log('Projet 2 is listening...');
+    console.log('Projet 2 is listening on ' + port);
 });
