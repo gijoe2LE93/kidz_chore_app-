@@ -4,8 +4,9 @@
         <% include ../partials/head%>
     </head>
     <body>
+            <% include ../partials/nav%>
         <header>
-            <h1><%=chores.title%>Chore Descriptions</h1>
+            <h1><%=chores.title%> Chore Descriptions</h1>
             <nav>
                 <ul>
                     <li>
@@ -22,6 +23,10 @@
                 <form action="/chores/<%=chores._id%>?_method=DELETE" method="post">
                     <input type="submit" value="Delete Chore"/>
                 </form>
+                <dl class="">
+                    <dt><%=chores.title%></dt>
+                    <dd><%=chores.body%></dd>
+                </dl>
                 <a href ="/chores/<%=chores._id%>/edit"<Edit</a><%=chores.body%>
             </section>
         </main>

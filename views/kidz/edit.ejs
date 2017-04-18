@@ -3,29 +3,29 @@
     <head>
         <% include ../partials/head%>
     <body>
+        <% include ../partials/nav%>
         <h1>Edit Information for <%=kidz.name%></h1>
-        <nav>
-            <ul>
-                <li> <a href = "/">Home<a/>
-                </li>
-                <li> <a href = "/kidz">Kidz Index</a>
-                </li>
-            </ul>
-        </nav>
         <main>
             <section>
-                <ul>
-                    <h2><li>Name: <%=kidz.name%></li></h2>
+                    <h2>
+                        Name: <%=kidz.name%>
+                    </h2>
                     <form action="/kidz/<%=kidz._id%>?_method=PUT" method="POST">
-                        <input type="text" name="name" value="<%=kidz.name%>"/><br>
-                        <input type="submit" value="Update Name"/>
+                        <div class="form-group">
+                            <label for="Name">Name:</label>
+                            <input type="text" name="name" value="<%=kidz.name%>"/><br>
+                            <input class="btn btn-primary" type="submit" value="Update Name"/>
+                        </div>
                     </form>
-                    <h2><li>Age: <%=kidz.age%></li></h2>
+                    <h2>
+                        Age: <%=kidz.age%>
+                    </h2>
                     <form action="/kidz/<%=kidz._id%>?_method=PUT" method="POST">
+                        <label for="Age:">Age:</label>
                         <input type="text" name="age" value="<%=kidz.age%>"/><br>
-                        <input type="submit" value="Update Age"/>
+                        <input class="btn btn-primary"type="submit" value="Update Age"/>
                     </form>
-                </ul>
+
             </section>
         </main>
     </body>

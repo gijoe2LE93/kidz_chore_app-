@@ -6,25 +6,34 @@ body{
 ul{
     list-style: none;
 }
-.tnav{
-    height: 50vh;
-    display: flex;
+.formcontrol{
 
 }
-.foot{
+.title{
+    position: relative;
+    top: 150px;
     background-color: orange;
+    text-align: center;
+    border-style: outset;
+}
+.btn{
+    height: 10vh;
+    width: 5em;
+    display: flex;
+}
+
+.footer{
+    background-color: orange;
+    height: 40px;
+    position: absolute;
 }
 h1{
-    padding-top: 10px 10px 10px 10px;
+    position: relative;
+    background-color: orange;
     text-align: center;
     border-style: outset;
 }
 
-.btn {
-    display: inline-flex;
-    background-color: rgb(228, 130, 19);
-    font-size: 20px;
-}
 section{
     display: block;
     padding-top: 50px;
