@@ -4,7 +4,7 @@
         <% include ../partials/head%>
     </head>
     <body>
-        <h1>Edit <%=chores.title%>'s Info</h1>
+        <h1>Edit <%=chores.title%> </h1>
         <nav>
 
         </nav>
@@ -14,7 +14,7 @@
                 <form action="/chores/<%=chores._id%>?_method=PUT" method="post">
                 <input type="text" name="title" value="<%=chores.title%>"/><br>
                 <textarea name="body"><%=chores.body%></textarea><br/>
-                <input type="submit" class="btn" value="Update Chores"/>
+                <input type="submit" class="btn" value="Update Chore"/>
                 </form>
             </main>
         </div>

@@ -73,6 +73,7 @@ router.get('/', function(req, res){
 router.get('/:id', function(req, res){
     Chores.findById(req.params.id, function(err, foundChores){
         Kidz.findOne({'chores._id':req.params.id}, function(err, foundKidz){
+            console.log(foundChores)
             res.render('chores/show.ejs', {
                 chores:foundChores
             });
@@ -83,10 +84,34 @@ router.get('/:id', function(req, res){
 //Create Delete Route
 //---------------------------------------
 router.delete('/:id', function(req, res){
-    Chores.findByIdAndRemove(req.params.id, function () {
-        res.redirect('/chores');
+    Chores.findByIdAndRemove(req.params.id, function (err, foundKidz){
+        //find the kid with specific chore ID assigned
+        Kidz.findOne({'chores._id': req.params.id}, function(err, foundKidz){
+            //remove the chores assigned to specific child
+            foundKidz.chores.id(req.params.id).remove();
+            //save the new kidz profile without chore
+            foundKidz.save(function(err, data){
+                res.redirect('/chores');
+            });
+        });
     });
 });
+
+//------------------------------------------
+//Create Put Route to update Chores and Kidz
+//------------------------------------------
+router.put('/:id', function(req, res){
+    Chores.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, updatedChores){
+        Kidz.findOne({'chores._id': req.params.id }, function(err, foundKidz){
+            foundKidz.chores.id(req.params.id).remove();
+            foundKidz.chores.push(updatedChores);
+            foundKidz.save(function(err, data){
+                res.redirect('/chores/'+req.params.id);
+            });
+        });
+    });
+});
+
 //------------------------------
 //export chores
 //------------------------------

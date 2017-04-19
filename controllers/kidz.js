@@ -12,6 +12,7 @@ var router = express.Router();
 // Require Kidz model
 //------------------------------
 var Kidz = require('../models/kidz.js');
+var Chores = require('../models/chores.js');
 
 
 //___________________
@@ -100,6 +101,27 @@ router.get('/:id/edit', function(req, res){
 router.put('/:id', function(req, res){
     Kidz.findByIdAndUpdate(req.params.id, req.body, function(err, foundKidz){
         res.redirect('/kidz');
+    });
+});
+//-------------------------------------------------------
+//This delete route removes the Kid and associated chores
+//-------------------------------------------------------
+router.delete('/:id', function(req, res){
+    Kidz.findByIdAndRemove(req.params.id, function(err, foundKidz){
+        var choresIds = [];
+        for (var i = 0; i < foundKidz.chores.length; i++) {
+            choresIds.push(foundKidz.chores[i]._id);
+        }
+        Chores.remove(
+            {
+                _id : {
+                    $in: choresIds
+                }
+            },
+            function(err, data){
+                res.redirect('/kidz');
+            }
+        );
     });
 });
 

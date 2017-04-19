@@ -25,9 +25,8 @@ ul{
 
 .footer{
     background-color: orange;
-
-    /*height: 40px;
-    position: absolute;*/
+    position: absolute;
+    top: 750;
 }
 h1{
     position: relative;

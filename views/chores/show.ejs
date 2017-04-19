@@ -6,29 +6,22 @@
     <body>
             <% include ../partials/nav%>
         <header>
-            <h1><%=chores.title%> Chore Descriptions</h1>
-            <small>by: <a href='/kidz/<%=kidz._id%>'><%=kidz.name%></a></small>
-            <nav>
-                <ul>
-                    <li>
-                        <a href = "/">Home</a>
-                    </li>
-                    <li>
-                        <a href = "/chores">Chores Index</a>
-                    </li>
-                </ul>
-            </nav>
+            <h1><%=chores.title%> Chore Description</h1>
         </header>
         <main>
             <section>
+                <dl class="">
+                    <h2><dt>Tasks</dt></h2>
+                    <% for(i = 0; i < chores.body.length; i++) {%>
+                        <%=chores.body[i]%>
+                    <%}%>
+                    <dd><%=chores.body%></dd>
+                    <dd><%=chores.body%></dd>
+                </dl>
+                <a href ="/chores/<%=chores._id%>/edit">Edit Chore</a>
                 <form action="/chores/<%=chores._id%>?_method=DELETE" method="post">
                     <input type="submit" value="Delete Chore"/>
                 </form>
-                <dl class="">
-                    <dt><%=chores.title%></dt>
-                    <dd><%=chores.body%></dd>
-                </dl>
-                <a href ="/chores/<%=chores._id%>/edit"<Edit</a><%=chores.body%>
             </section>
         </main>
     </body>
