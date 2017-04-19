@@ -10,14 +10,12 @@
         </header>
         <main>
             <section>
-                <dl class="">
-                    <h2><dt>Tasks</dt></h2>
+                <ul class="chores">
+                    <h2><li>Tasks</li></h2>
                     <% for(i = 0; i < chores.body.length; i++) {%>
-                        <%=chores.body[i]%>
+                    <li><%=chores.body%></li>    
                     <%}%>
-                    <dd><%=chores.body%></dd>
-                    <dd><%=chores.body%></dd>
-                </dl>
+                </ul>
                 <a href ="/chores/<%=chores._id%>/edit">Edit Chore</a>
                 <form action="/chores/<%=chores._id%>?_method=DELETE" method="post">
                     <input type="submit" value="Delete Chore"/>

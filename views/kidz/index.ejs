@@ -9,10 +9,17 @@
             <h1>Here are the available kidz to work</h1>
             <nav>
                 <ul>
+                    <a href="/kidz/new">Add a Child</a>
+                </ul>
+                <ul>
                     <% for (var i = 0; i < kidz.length; i++){ %>
                         <li>
-                            <a href="/kidz/<%=kidz[i]._id%>"><%=kidz[i].name%></a>
-                            <a href="/kidz/<%=kidz[i]._id%>"><%=kidz[i].age%></a>
+                            <h2>
+                                <a href="/kidz/<%=kidz[i]._id%>"><%=kidz[i].name%>
+                                </a>
+                                <a href="/kidz/<%=kidz[i]._id%>">---<%=kidz[i].age%>
+                                </a>
+                            </h2>
                         </li>
                     <% } %>
                     <li><a></a>

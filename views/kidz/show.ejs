@@ -7,7 +7,7 @@
         <% include ../partials/nav%>
         <header>
             <h1>Show Page for <%=kidz.name%></h1>
-            <nav class="tnav">
+            <nav class="nav">
                 <ul>
                     <li>
                         <a href="/">Home</a>
@@ -35,7 +35,7 @@
                 </ul>
             </section>
             <form action="/kidz/<%=kidz._id%>/edit" method="post">
-                
+
             </form>
             <a href="/kidz/<%=kidz._id%>/edit">Edit</a>
             <form action="/kidz/<%=kidz._id%>?_method=DELETE" method="post">

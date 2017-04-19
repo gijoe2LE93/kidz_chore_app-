@@ -45,16 +45,25 @@ router.post('/', function(req,res){
         });
     });
 }); // Kidz not defined error up to this point
+
 //----------------------------
 //Edit route
 //----------------------------
 router.get('/:id/edit', function(req, res){
     Chores.findById(req.params.id, function(err, foundChores){
-        res.render('chores/edit.ejs', {
-            chores: foundChores
+        Kidz.find({}, function(err, allKidz){
+            Kidz.findOne({'chores._id':req.params.id}, function(err, foundChoresKidz) {
+                res.render('chores/edit.ejs', {
+                    chores: foundChores,
+                    kidz: foundKidz,
+                    choresKidz: foundChoresKidz
+                });
+            });
+
         });
     });
 });
+
 //---------------------------------------
 //Show chores list on chores index route
 //---------------------------------------
@@ -103,11 +112,24 @@ router.delete('/:id', function(req, res){
 router.put('/:id', function(req, res){
     Chores.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, updatedChores){
         Kidz.findOne({'chores._id': req.params.id }, function(err, foundKidz){
-            foundKidz.chores.id(req.params.id).remove();
-            foundKidz.chores.push(updatedChores);
-            foundKidz.save(function(err, data){
-                res.redirect('/chores/'+req.params.id);
-            });
+            if(foundKidz._id.toString() !== req.body.kidzId){
+                foundKidz.chores.id(req.params.id).remove();
+                foundKidz.save(function(err, savedFoundKidz){
+                    Kidz.findById(req.body.kidzId, function(err, newKidz){
+                        newKidz.cores.push(updatedChores);
+                        newKidz.save(function(err, savedNewKdiz){
+                            res.redirect('/chores/'+req.params.id);
+                        });
+                    });
+                });
+            } else {
+                foundKidz.chores.id(req.params.id).remove();
+                foundKidz.chores.push(updatedChores);
+                foundKidz.save(function(err, data){
+                    res.redirect('/chores/'+req.params.id);
+                });
+
+            }
         });
     });
 });

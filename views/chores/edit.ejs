@@ -6,7 +6,6 @@
     <body>
         <h1>Edit <%=chores.title%> </h1>
         <nav>
-
         </nav>
         <div class="form-group">
             <main>
@@ -16,6 +15,23 @@
                 <textarea name="body"><%=chores.body%></textarea><br/>
                 <input type="submit" class="btn" value="Update Chore"/>
                 </form>
+                <div class="">
+                    <form action="/chores/<%=chores._id%>?_method=PUT" method="post">
+                        <select class="" name="kidzId">
+                            <% for(var i = 0; i < kidz.length; i++){ %>
+                                <option value="<%kidz[i]._id%>">
+                                    if(kidz[i]._id.toString() === chores.Kidz._id.toString()){ %>
+                                        selected
+                                <%  } %>
+                                    <%=kidz[i].name%>
+                                </option>
+                            <%  } %>
+                    </select><br>
+                    <input type="text" name="title" value="<%=chores.title%>"/><br>
+                    <input type="submit" name="" value="Update Chore"/>
+
+                    </form>
+                </div>
             </main>
         </div>
     </body>
