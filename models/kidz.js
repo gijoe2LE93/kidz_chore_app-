@@ -3,13 +3,18 @@
 //-----------------------
 
 var mongoose = require('mongoose');
+//--------------------------------
+// require Chores in Kidz model
+//--------------------------------
+var Chores = require('./chores.js');
 
 //-----------------------
 //Create Schema for kidz
 //-----------------------
 var kidzSchema = mongoose.Schema({
     name: String,
-    age: Number
+    age: Number,
+    chores: [Chores.schema]
 });
 
 //---------------------------

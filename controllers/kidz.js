@@ -77,9 +77,9 @@ router.delete('/:id', function(req, res){
 
 router.get('/:id', function(req, res){
     Kidz.findById(req.params.id, function(err, foundKidz){
-        res.render('kidz/show.ejs'),{
-            kids: foundKidz
-        };
+        res.render('kidz/show.ejs', {
+            kidz: foundKidz
+        });
     });
 });
 

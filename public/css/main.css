@@ -17,15 +17,17 @@ ul{
     border-style: outset;
 }
 .btn{
-    height: 10vh;
+    /*height: 10vh;*/
     width: 5em;
     display: flex;
+    white-space: normal;
 }
 
 .footer{
     background-color: orange;
-    height: 40px;
-    position: absolute;
+
+    /*height: 40px;
+    position: absolute;*/
 }
 h1{
     position: relative;

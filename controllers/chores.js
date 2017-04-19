@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+
+//--------------------------------
+// require Kidz in Chores model
+//--------------------------------
+var Kidz = require('../models/kidz.js');
 var Chores = require('../models/chores.js');
 // ---------------------------------
 // Create Chores Index Route
@@ -16,17 +21,30 @@ router.get('/', function(req, res){
 // ---------------------------------
 // Create Chores New Route
 // ---------------------------------
-router.get('/new', function (req, res){
-    res.render('chores/new.ejs');
+router.get('/new', function(req, res){
+    //finds all kids for view on New Page
+    Kidz.find({}, function(err, allKidz){
+        res.render('chores/new.ejs', {
+            kidz: allKidz
+        });
+    });
 });
 //------------------------------
 // Chores Create Route
 //------------------------------
 router.post('/', function(req,res){
-    Chores.create(req.body, function(err, createdChores){
-        res.redirect('/chores');
+    //This finds all the kidz to post to chores array
+    Kidz.findById(req.body.kidzId, function(err, foundKidz){
+        Chores.create(req.body, function(err, createdChores){
+            //pushes found kidz to the array
+            foundKidz.chores.push(createdChores)
+            //Saves the foundKidz
+            foundKidz.save(function(err, data){
+                res.redirect('/chores');
+            });
+        });
     });
-});
+}); // Kidz not defined error up to this point
 //----------------------------
 //Edit route
 //----------------------------
@@ -50,12 +68,14 @@ router.get('/', function(req, res){
 });
 
 //---------------------------------------
-//Show Route
+//Show Route with chores link
 //---------------------------------------
 router.get('/:id', function(req, res){
     Chores.findById(req.params.id, function(err, foundChores){
-        res.render('chores/show.ejs', {
-            chores:foundChores
+        Kidz.findOne({'chores._id':req.params.id}, function(err, foundKidz){
+            res.render('chores/show.ejs', {
+                chores:foundChores
+            });
         });
     });
 });

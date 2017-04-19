@@ -25,6 +25,14 @@
                     <h2><li>Age: <%=kidz.age%></li></h2>
                 </ul>
             </section>
+            <section>
+                <h2>Assigned Chores</h2>
+                <ul>
+                    <% for(var i = 0; i < kidz.chores.length; i++){ %>
+                        <li><a href='/chores/<%=kidz.chores[i]._id%>'><%=kidz.chores[i].title%></li>
+                    <%}%>
+                </ul>
+            </section>
             <a href="/kidz/<%=kidz._id%>/edit">Edit</a>
             <form action="/kidz/<%=kidz._id%>?_method=DELETE" method="post">
                 <input class="btn" type="submit" value="Delete Kid">
