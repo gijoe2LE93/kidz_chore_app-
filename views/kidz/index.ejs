@@ -4,28 +4,38 @@
         <% include ../partials/head%>
     </head>
     <body>
-        <% include ../partials/nav%>
-        <header>
-            <h1>Here are the available kidz to work</h1>
-            <nav>
-                <ul>
-                    <a href="/kidz/new">Add a Child</a>
-                </ul>
-                <ul>
-                    <% for (var i = 0; i < kidz.length; i++){ %>
-                        <li>
-                            <h2>
-                                <a href="/kidz/<%=kidz[i]._id%>"><%=kidz[i].name%>
-                                </a>
-                                <a href="/kidz/<%=kidz[i]._id%>">---<%=kidz[i].age%>
-                                </a>
-                            </h2>
-                        </li>
-                    <% } %>
-                    <li><a></a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <% include ../partials/nav%>
+                <header>
+                    <div class="column">
+                        <h1>Here are the available kidz to work</h1>
+                        <nav>
+                            <ul class = 'list-group active'>
+                                <% for (var i = 0; i < kidz.length; i++){ %>
+                                    <li>
+                                        <h2>
+                                                <a class="list-group-item"
+                                                href="/kidz/<%=kidz   [i]._id%>"><%=kidz[i].name%>
+                                                </a>
+                                                <a class="list-group-item" href="/kidz/<%=kidz[i]._id%>">Age <%=kidz[i].age%>
+                                                </a>
+                                        </h2>
+                                    </li>
+                                <% } %>
+                                <li>
+                                    <a class="list-group-item active" href="/kidz/new">Add a Child
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="list-group-item active" href="/chores/new">Add a Chore
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+             </div>
+        </div>
     </body>
 </html>

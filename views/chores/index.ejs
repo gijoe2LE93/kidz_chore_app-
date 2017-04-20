@@ -8,18 +8,17 @@
         <header>
             <h1>Chores</h1>
             <nav>
-                <ul>
+                <ul class="list-group">
                     <% for (var i = 0; i < chores.length; i++){ %>
-                    <li>
+                    <h2>
+                        <li>
                         <a href = "/chores/<%=chores[i]._id%>"><%=chores[i].title%></a>
-                    </li>
-                <% } %>
-                    <li>
-                        <a href = "/">Home<a/>
-                    </li>
-                    <li>
-                        <a href = "/chores/new">Create a New Chore<a/>
-                    </li>
+                        </li>
+                    <% } %>
+                        <li>
+                        <a class="list-group-item active" href = "/chores/new">Create a New Chore<a/>
+                        </li>
+                    </h2>
                 </ul>
             </nav>
 

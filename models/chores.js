@@ -8,7 +8,8 @@ var Kidz = require('../models/kidz.js');
 //--------------------------------
 var choresSchema = mongoose.Schema({
     title:String,
-    body:String
+    body:String,
+    img:String
 });
 
 var Chores = mongoose.model('Chores', choresSchema);

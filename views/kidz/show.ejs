@@ -7,16 +7,6 @@
         <% include ../partials/nav%>
         <header>
             <h1>Show Page for <%=kidz.name%></h1>
-            <nav class="nav">
-                <ul>
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/kidz">Kidz Index</a>
-                    </li>
-                </ul>
-            </nav>
         </header>
         <main>
             <section>
@@ -29,15 +19,18 @@
                 <h2>Assigned Chores</h2>
                 <ul>
                     <% for(var i = 0; i < kidz.chores.length; i++){ %>
-                        <li><a href='/chores/<%=kidz.chores[i]._id%>'><%=kidz.chores[i].title%></a>
-                        </li>
+                        <h2>
+                            <li>
+                                <a href='/chores/<%=kidz.chores[i]._id%>'><%=kidz.chores[i].title%>
+                                </a>
+                            </li>
+                        </h2>
                     <%}%>
                 </ul>
+
             </section>
             <form action="/kidz/<%=kidz._id%>/edit" method="post">
-
             </form>
-            <a href="/kidz/<%=kidz._id%>/edit">Edit</a>
             <form action="/kidz/<%=kidz._id%>?_method=DELETE" method="post">
                 <input class="btn" type="submit" value="Delete Kid">
             </form>

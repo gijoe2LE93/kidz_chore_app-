@@ -1,7 +1,7 @@
 
 body{
     text-align: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(181, 199, 159);
 }
 ul{
     list-style: none;
@@ -21,18 +21,22 @@ ul{
     width: 5em;
     display: flex;
     white-space: normal;
+    text-align: center;
 }
-
+.navbar {
+    background-color: rgb(181, 199, 159);
+}
 .footer{
     background-color: orange;
     position: absolute;
-    top: 750;
+    top: 650;
+    bottom: 0;
 }
 h1{
     position: relative;
-    background-color: orange;
+    background-color: rgb(242, 208, 141);
     text-align: center;
-    border-style: outset;
+    color: rgb(199, 70, 41);
 }
 
 section{
