@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
 //--------------------------------
 // require Kidz in Chores model
 //--------------------------------
@@ -36,7 +35,7 @@ router.post('/', function(req,res){
     //This finds all the kidz to post to chores array
     Kidz.findById(req.body.kidzId, function(err, foundKidz){
         Chores.create(req.body, function(err, createdChores){
-            console.log(req.body);
+            // console.log(req.body);
             //pushes found kidz to the array
             foundKidz.chores.push(createdChores)
             //Saves the foundKidz
@@ -52,8 +51,17 @@ router.post('/', function(req,res){
 //----------------------------
 router.get('/:id/edit', function(req, res){
     Chores.findById(req.params.id, function(err, foundChores){
+        // console.log('----------');
+        // console.log(foundChores);
+        // console.log('----chores.js------');
         Kidz.find({}, function(err, foundKidz){
+            // console.log('----------');
+            // console.log(foundKidz);
+            // console.log('----chores.js 57------');
             Kidz.findOne({'chores._id':req.params.id}, function(err, foundChoresKidz) {
+                console.log('----------');
+                console.log(foundChoresKidz);
+                console.log('----chores.js------');
                 res.render('chores/edit.ejs', {
                     chores: foundChores,
                     kidz: foundKidz,
@@ -83,7 +91,7 @@ router.get('/', function(req, res){
 router.get('/:id', function(req, res){
     Chores.findById(req.params.id, function(err, foundChores){
         Kidz.findOne({'chores._id':req.params.id}, function(err, foundKidz){
-            console.log(foundChores)
+            // console.log(foundChores)
             res.render('chores/show.ejs', {
                 chores:foundChores
             });
@@ -113,16 +121,19 @@ router.delete('/:id', function(req, res){
 //------------------------------------------
 router.put('/:id', function(req, res){
     Chores.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, updatedChores){
+        console.log(updatedChores);
         Kidz.findOne({'chores._id': req.params.id }, function(err, foundKidz){
-            console.log(req.body);
+            console.log(foundKidz);
             if(foundKidz._id !== req.body.kidzId){
                 foundKidz.chores.id(req.params.id).remove();
-                                        console.log(req.body);
-                foundKidz.save(function(err, savedFoundKidz){
-                    Kidz.findById(req.body.kidzId, function(err, newKidz){
 
+                foundKidz.save(function(err, savedfoundKidz){
+                    Kidz.findById(req.body.kidzId, function(err, newKidz){
+                        console.log('----------');
+                        console.log(newKidz);
+                        console.log('----chores.js------');
                         newKidz.chores.push(updatedChores);
-                        newKidz.save(function(err, savedNewKdiz){
+                        newKidz.save(function(err, savedNewKidz){
                             res.redirect('/chores/'+req.params.id);
                         });
                     });

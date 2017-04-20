@@ -4,6 +4,7 @@
         <% include ../partials/head%>
     </head>
     <body>
+        <% include ../partials/nav%>
         <h1>Edit <%=chores.title%> </h1>
         <nav>
         </nav>
@@ -16,8 +17,7 @@
                                 <%=kidz[i].name%>
                             </option>
                         <%  } %>
-                </select><br>
-                <input type="text" name="title" value="<%=chores.title%>"/><br>
+                    </select><br>
                 <textarea name="body"><%=chores.body%></textarea><br/>
                 <input type="submit" class="btn" value="Update Chore"/>
                 </form>
