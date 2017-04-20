@@ -17,15 +17,20 @@
                     <option value="<%=kidz[i]._id%>"><%=kidz[i].name%></option>
                 <% } %>
             </select><br>
-                <input type="text" name="title"/><br>
-                <input type="text" name="body">
-                <input type="text" name="body">
-                <input type="text" name="body">
-                <input type="text" name="body">
-                <input type="text" name="body">
-                <!-- <textarea name="body"></textarea> -->
-                <input class="btn" type="submit" value="Add Chore">
             </form>
+            <div class="form-group">
+                <label for = 'Chore Description'>Chore Description:</label>
+                <textarea class = 'form-control' name="body" id='comment'></textarea>
+                <input class="btn" type="submit" value="Add Chore">
+            </div>
+                <!-- <input type="text" name="title"/><br>
+                <input type="text" name="body">
+                <input type="text" name="body">
+                <input type="text" name="body">
+                <input type="text" name="body">
+                <input type="text" name="body"> -->
+
+
         </main>
     </body>
 </html>
