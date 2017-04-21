@@ -6,7 +6,7 @@
     <body>
         <% include ../partials/nav%>
         <header>
-            <h1>Show Page for <%=kidz.name%></h1>
+            <h1>Chore Page for <%=kidz.name%></h1>
         </header>
         <main>
             <section>
@@ -27,13 +27,14 @@
                         </h2>
                     <%}%>
                 </ul>
-
             </section>
             <form action="/kidz/<%=kidz._id%>/edit" method="post">
             </form>
+            <div class="formbtns">
             <form action="/kidz/<%=kidz._id%>?_method=DELETE" method="post">
-                <input class="btn" type="submit" value="Delete Kid">
+                <input class= "btn btn-info" type="submit" value="Delete Kid"/>
             </form>
+            </div>
         </main>
     </body>
 </html>

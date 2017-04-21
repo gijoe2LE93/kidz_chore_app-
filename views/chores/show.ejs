@@ -9,17 +9,24 @@
             <h1><%=chores.title%> </h1>
         </header>
         <main>
+
             <section>
                 <ul class="chores">
                     <h2>
                         <li>Description</li>
                     </h2>
-                    <li><%=chores.body%></li>
+                    <h3><li><%=chores.body%></li></h3>
                 </ul>
-                <a href ="/chores/<%=chores._id%>/edit">Edit Chore</a>
-                <form action="/chores/<%=chores._id%>?_method=DELETE"   method="post">
-                    <input type="submit" value="Delete Chore"/>
-                </form>
+                <div class="btncontainer">
+                    <div class="formbtns">
+                        <a class = "btn btn-info edit" href ="/chores/<%=chores._id%>/edit">Edit Chore</a>
+                    </div>
+                    <div class="formbtns">
+                    <form action="/chores/<%=chores._id%>?_method=DELETE" method="post">
+                        <input class = "btn btn-info" type="submit" value="Delete Chore"/>
+                    </form>
+                    </div>
+                </div>
             </section>
         </main>
     </body>

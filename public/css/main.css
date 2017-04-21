@@ -6,9 +6,21 @@ body{
 ul{
     list-style: none;
 }
-.formcontrol{
+.btncontainer{
+
+    display: flex;
+    justify-content: center;
+}
+
+.edit{
+    margin-top: 10px;
 
 }
+
+.image{
+    width: 40%;
+}
+
 .title{
     position: relative;
     top: 150px;
